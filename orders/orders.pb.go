@@ -24,7 +24,7 @@ const (
 type CreateOrderRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Product       string                 `protobuf:"bytes,1,opt,name=product,proto3" json:"product,omitempty"`
-	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -66,7 +66,7 @@ func (x *CreateOrderRequest) GetProduct() string {
 	return ""
 }
 
-func (x *CreateOrderRequest) GetUserId() int32 {
+func (x *CreateOrderRequest) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
@@ -75,7 +75,7 @@ func (x *CreateOrderRequest) GetUserId() int32 {
 
 type CreateOrderResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -110,7 +110,7 @@ func (*CreateOrderResponse) Descriptor() ([]byte, []int) {
 	return file_orders_orders_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateOrderResponse) GetId() int32 {
+func (x *CreateOrderResponse) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
@@ -119,7 +119,7 @@ func (x *CreateOrderResponse) GetId() int32 {
 
 type GetOrderRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -154,7 +154,7 @@ func (*GetOrderRequest) Descriptor() ([]byte, []int) {
 	return file_orders_orders_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetOrderRequest) GetId() int32 {
+func (x *GetOrderRequest) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
@@ -360,11 +360,11 @@ const file_orders_orders_proto_rawDesc = "" +
 	"\x13orders/orders.proto\x12\x06orders\"G\n" +
 	"\x12CreateOrderRequest\x12\x18\n" +
 	"\aproduct\x18\x01 \x01(\tR\aproduct\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\x05R\x06userId\"%\n" +
+	"\auser_id\x18\x02 \x01(\x03R\x06userId\"%\n" +
 	"\x13CreateOrderResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"!\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"!\n" +
 	"\x0fGetOrderRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"7\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"7\n" +
 	"\x10GetOrderResponse\x12#\n" +
 	"\x05order\x18\x01 \x01(\v2\r.orders.OrderR\x05order\",\n" +
 	"\x11ListOrdersRequest\x12\x17\n" +

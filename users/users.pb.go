@@ -67,7 +67,7 @@ func (x *CreateUserRequest) GetName() string {
 
 type CreateUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -102,7 +102,7 @@ func (*CreateUserResponse) Descriptor() ([]byte, []int) {
 	return file_users_users_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateUserResponse) GetId() int32 {
+func (x *CreateUserResponse) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
@@ -111,7 +111,7 @@ func (x *CreateUserResponse) GetId() int32 {
 
 type GetUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -146,7 +146,7 @@ func (*GetUserRequest) Descriptor() ([]byte, []int) {
 	return file_users_users_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetUserRequest) GetId() int32 {
+func (x *GetUserRequest) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
@@ -155,7 +155,7 @@ func (x *GetUserRequest) GetId() int32 {
 
 type GetUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -191,7 +191,7 @@ func (*GetUserResponse) Descriptor() ([]byte, []int) {
 	return file_users_users_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetUserResponse) GetId() int32 {
+func (x *GetUserResponse) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
@@ -213,11 +213,11 @@ const file_users_users_proto_rawDesc = "" +
 	"\x11CreateUserRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\"$\n" +
 	"\x12CreateUserResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\" \n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\" \n" +
 	"\x0eGetUserRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\"5\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"5\n" +
 	"\x0fGetUserResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name2\x8a\x01\n" +
 	"\vUserService\x12A\n" +
 	"\n" +
