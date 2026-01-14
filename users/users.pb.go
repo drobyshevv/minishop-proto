@@ -155,8 +155,7 @@ func (x *GetUserRequest) GetId() int64 {
 
 type GetUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	User          *User                  `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -191,14 +190,59 @@ func (*GetUserResponse) Descriptor() ([]byte, []int) {
 	return file_users_users_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetUserResponse) GetId() int64 {
+func (x *GetUserResponse) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type User struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *User) Reset() {
+	*x = User{}
+	mi := &file_users_users_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *User) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*User) ProtoMessage() {}
+
+func (x *User) ProtoReflect() protoreflect.Message {
+	mi := &file_users_users_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use User.ProtoReflect.Descriptor instead.
+func (*User) Descriptor() ([]byte, []int) {
+	return file_users_users_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *User) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *GetUserResponse) GetName() string {
+func (x *User) GetName() string {
 	if x != nil {
 		return x.Name
 	}
@@ -215,8 +259,10 @@ const file_users_users_proto_rawDesc = "" +
 	"\x12CreateUserResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\" \n" +
 	"\x0eGetUserRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"5\n" +
-	"\x0fGetUserResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"2\n" +
+	"\x0fGetUserResponse\x12\x1f\n" +
+	"\x04user\x18\x01 \x01(\v2\v.users.UserR\x04user\"*\n" +
+	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name2\x8a\x01\n" +
 	"\vUserService\x12A\n" +
@@ -236,23 +282,25 @@ func file_users_users_proto_rawDescGZIP() []byte {
 	return file_users_users_proto_rawDescData
 }
 
-var file_users_users_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_users_users_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_users_users_proto_goTypes = []any{
 	(*CreateUserRequest)(nil),  // 0: users.CreateUserRequest
 	(*CreateUserResponse)(nil), // 1: users.CreateUserResponse
 	(*GetUserRequest)(nil),     // 2: users.GetUserRequest
 	(*GetUserResponse)(nil),    // 3: users.GetUserResponse
+	(*User)(nil),               // 4: users.User
 }
 var file_users_users_proto_depIdxs = []int32{
-	0, // 0: users.UserService.CreateUser:input_type -> users.CreateUserRequest
-	2, // 1: users.UserService.GetUser:input_type -> users.GetUserRequest
-	1, // 2: users.UserService.CreateUser:output_type -> users.CreateUserResponse
-	3, // 3: users.UserService.GetUser:output_type -> users.GetUserResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	4, // 0: users.GetUserResponse.user:type_name -> users.User
+	0, // 1: users.UserService.CreateUser:input_type -> users.CreateUserRequest
+	2, // 2: users.UserService.GetUser:input_type -> users.GetUserRequest
+	1, // 3: users.UserService.CreateUser:output_type -> users.CreateUserResponse
+	3, // 4: users.UserService.GetUser:output_type -> users.GetUserResponse
+	3, // [3:5] is the sub-list for method output_type
+	1, // [1:3] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_users_users_proto_init() }
@@ -266,7 +314,7 @@ func file_users_users_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_users_users_proto_rawDesc), len(file_users_users_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
